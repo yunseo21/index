@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+body{
+    background-color: pink;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container{
+    width: 500px;
+    height: 700px;
+    background-color: white;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#message{
+    margin-top: 50px;
+    width: 350px;
+    height: 200px;
+}
+#submit{
+    margin-left: 5px;
+}
+</style>
+<script>
+function messageSubmit(){
+    var newMessage = document.createElement("div");
+    newMessage.innerHTML = document.getElementById("message").value;
+    newmessage.oclick = removeMessage;
+    document.getElementById(messageList).appendChild(newMessage);
+    saveMessage();
+}
+function messageSubmit(){
+    document.getElementById(messageList).removeChild(this);
+    saveMessage();
+}
+function messageSubmit(){
+    localStorage.saveMessageList = document.getElementById("messageList").innerHTML;
+}
+function messageSubmit(){
+    document.getElementById("messageList").innerHTML = localStorage.saveMessageList;
+    for(var i=0; i < messageList.children.length; i++){
+        message.childern[i].onclick=removeMessage;
+    }
+}
+</script>   
+</head>
+<body>
+    <h2>My Page에 오신 것을 환영합니다!</h2>
+    방명록을 작성해주세요.<br/><br/>
+    <div class="container">
+        <input id="message" type="text"/><br/>
+        <div class="messageContainer">
+       <input id="submit" type="button" value="입력" onclick="messageSubmit();"></div>     
+       <br/><br/>
+        <div id="messageList">
+            <script>
+                if(localStorage.saveMessageList){
+                    loadMessage();
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>
